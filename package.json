@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ClaudioFerreira/prjFFS/issues"
   },
-  "homepage": "https://github.com/ClaudioFerreira/prjFFS#readme"
+  "homepage": "https://github.com/ClaudioFerreira/prjFFS#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
