@@ -1,0 +1,29 @@
+.carousel{
+    height: 100vh;
+    width: 100vw;
+    background-color: steelblue;
+}
+
+.services{
+    height: 100vh;
+    width: 100vw;
+    background-color: salmon;
+}
+.card-deck{
+    margin-top: 80px;
+}
+
+.galery{
+    height: 100vh;
+    width: 100vw;
+    background-color: crimson;
+}
+
+.about{
+    height: 100vh;
+    width: 100vw;
+    background-color: powderblue;
+}
+#aboutCard{
+    margin-top: 80px;
+}
