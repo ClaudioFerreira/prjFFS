@@ -15,12 +15,19 @@ import { Service } from 'src/app/models/service';
 export class AdminComponent implements OnInit {
 
   constructor(
-    private serviceService: ServiceService,
-    private toastr: ToastrService
+    public serviceService: ServiceService,
+    public toastr: ToastrService
   ) { }
 
   ngOnInit() {
     this.getServices();
+  }
+
+  getServices() {
+    this.serviceService.getServices()
+      .subscribe(res => {
+        this.serviceService.services = res as Service[];
+      })
   }
 
   addService(form: NgForm) {
@@ -31,7 +38,22 @@ export class AdminComponent implements OnInit {
         this.toastr.success('Serviço adicionado', 'Salvo!');
       })
   }
-  
+
+  editService(service: Service) {
+    this.serviceService.selectedService = service;
+  }
+
+  deleteService(_id: string) {
+    if (confirm('Você realmente quer deletar?')) {
+      this.serviceService.deleteService(_id)
+        .subscribe(res => {
+          this.getServices();
+          this.toastr.warning('Serviço removido', 'Deletado!')
+        });
+    }
+    this.getServices();
+  }
+
   resetForm(form?: NgForm) {
     if (form) {
       form.reset();
@@ -39,11 +61,5 @@ export class AdminComponent implements OnInit {
       this.getServices();
     }
   }
-  
-  getServices(){
-    this.serviceService.getServices()
-    .subscribe( res => {
-      this.serviceService.services = res as Service[];
-    })
-  }
+
 }
