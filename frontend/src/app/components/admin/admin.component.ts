@@ -27,24 +27,23 @@ export class AdminComponent implements OnInit {
     this.serviceService.postService(form.value)
       .subscribe(res => {
         this.resetForm(form);
-        console.log('Service Saved');
+        this.getServices();
         this.toastr.success('Serviço adicionado', 'Salvo!');
       })
   }
-
-  getServices(){
-    this.serviceService.getServices()
-    .subscribe( res => {
-      this.serviceService.services = res as Service[];
-      console.log(res);
-    })
-  }
-
+  
   resetForm(form?: NgForm) {
     if (form) {
       form.reset();
       this.serviceService.selectedService = new Service();
+      this.getServices();
     }
   }
-
+  
+  getServices(){
+    this.serviceService.getServices()
+    .subscribe( res => {
+      this.serviceService.services = res as Service[];
+    })
+  }
 }
