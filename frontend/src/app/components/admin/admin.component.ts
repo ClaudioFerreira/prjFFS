@@ -20,6 +20,7 @@ export class AdminComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getServices();
   }
 
   addService(form: NgForm) {
