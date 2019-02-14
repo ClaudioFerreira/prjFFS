@@ -32,6 +32,7 @@
           <div class="col-md-6">
 
             <form id="formServices" #serviceForm="ngForm" (ngSubmit)="addService(serviceForm)" >
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="serviceService.selectedService._id">
               <div class="form-group row">
                 <label for="inputTitle" class="col-sm-2 col-form-label">Titulo</label>
                 <div class="col-sm-10">
@@ -67,7 +68,7 @@
                   <button class="btn btn-outline-info btnFull" (click)="editService(item)" style="margin: 2px;">
                     <i class="fas fa-pen"></i>
                   </button>
-                  <button class="btn btn-outline-danger btnFull" (click)="deleteService(item)" style="margin: 2px;">
+                  <button class="btn btn-outline-danger btnFull" (click)="deleteServices(item._id)" style="margin: 2px;">
                     <i class="fas fa-trash"></i>
                   </button>
                 </span>

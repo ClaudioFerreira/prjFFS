@@ -24,7 +24,7 @@ serviceCtrl.getService = async (req, res) => {
 };
 
 serviceCtrl.editService = async (req, res) => {
-    const { id } = req.params;
+    // const { id } = req.params;
     const service = {
         title: req.body.title,
         description: req.body.description

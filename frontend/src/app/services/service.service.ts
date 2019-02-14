@@ -28,8 +28,8 @@ export class ServiceService {
     return this.http.put(this.URL_API + `/${Service._id}`, Service);
   }
 
-  deleteService(Service: Service){
-    return this.http.delete(this.URL_API + `/${Service._id}`);
+  deleteService(_id: string){
+    return this.http.delete(this.URL_API + `/${_id}`);
   }
 
 }

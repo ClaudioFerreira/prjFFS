@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 
 import { ServiceService } from '../../services/service.service';
 import { Service } from 'src/app/models/service';
+import { splitAtColon } from '@angular/compiler/src/util';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-admin',
@@ -15,8 +17,8 @@ import { Service } from 'src/app/models/service';
 export class AdminComponent implements OnInit {
 
   constructor(
-    public serviceService: ServiceService,
-    public toastr: ToastrService
+    private serviceService: ServiceService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -31,19 +33,30 @@ export class AdminComponent implements OnInit {
   }
 
   addService(form: NgForm) {
-    this.serviceService.postService(form.value)
-      .subscribe(res => {
-        this.resetForm(form);
-        this.getServices();
-        this.toastr.success('Serviço adicionado', 'Salvo!');
-      })
+    if (form.value._id) {
+      console.log(form.value)
+      this.serviceService.putService(form.value)
+        .subscribe(res => {
+          this.resetForm(form);
+          this.getServices();
+          this.toastr.success('Serviço atualizado com sucesso', 'Atualizado!');
+          console.log(res);
+        });
+    } else {
+      this.serviceService.postService(form.value)
+        .subscribe(res => {
+          this.resetForm(form);
+          this.getServices();
+          this.toastr.success('Serviço adicionado', 'Salvo!');
+        });
+    }
   }
 
   editService(service: Service) {
     this.serviceService.selectedService = service;
   }
 
-  deleteService(_id: string) {
+  deleteServices(_id: string) {
     if (confirm('Você realmente quer deletar?')) {
       this.serviceService.deleteService(_id)
         .subscribe(res => {
@@ -51,7 +64,6 @@ export class AdminComponent implements OnInit {
           this.toastr.warning('Serviço removido', 'Deletado!')
         });
     }
-    this.getServices();
   }
 
   resetForm(form?: NgForm) {
