@@ -24,8 +24,8 @@ export class ServiceService {
     return this.http.post(this.URL_API, Service);
   }
 
-  putService(Service: Service){
-    return this.http.put(this.URL_API + `/${Service._id}`, Service);
+  putService(form: Service){    
+    return this.http.put(this.URL_API + `/${form._id}`, form);
   }
 
   deleteService(_id: string){

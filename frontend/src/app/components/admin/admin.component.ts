@@ -33,8 +33,7 @@ export class AdminComponent implements OnInit {
   }
 
   addService(form: NgForm) {
-    if (form.value._id) {
-      console.log(form.value)
+    if (form.value._id) {      
       this.serviceService.putService(form.value)
         .subscribe(res => {
           this.resetForm(form);
