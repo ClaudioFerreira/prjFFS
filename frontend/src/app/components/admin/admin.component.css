@@ -1,0 +1,21 @@
+#painelAdm{
+    height: 100vh;
+    width: 100vw;
+}
+
+#formServices, #listServices, #navPainelAdm{
+    margin-top: 20px;
+}
+
+#listServices h6{
+    color: rgb(20, 20, 20);
+    font-style: italic;
+}
+
+#listServices p{
+    text-align: left;
+}
+
+#btnOperacoes{
+    margin: 4px;
+}

@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" id="painelAdm">
 
-  <nav>
+  <nav id="navPainelAdm">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-item nav-link active" id="nav-carousel-tab" data-toggle="tab" href="#nav-carousel" role="tab"
         aria-controls="nav-carousel" aria-selected="true">Carousel</a>
@@ -29,7 +29,7 @@
     <div class="tab-pane fade" id="nav-services" role="tabpanel" aria-labelledby="nav-services-tab">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-5">
 
             <form id="formServices" #serviceForm="ngForm" (ngSubmit)="addService(serviceForm)" >
               <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="serviceService.selectedService._id">
@@ -59,16 +59,16 @@
 
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-7" id="listServices">
             <ul class="list-group">
               <li *ngFor="let item of serviceService.services"  class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
-                <h6> {{ item.title }} </h6>
+                <h6>{{ item.title }} </h6>
                 <p> {{ item.description }} </p>
                 <span class="badge">
-                  <button class="btn btn-outline-info btnFull" (click)="editService(item)" style="margin: 2px;">
+                  <button class="btn btn-outline-info btnOperacoes" (click)="editService(item)" >
                     <i class="fas fa-pen"></i>
                   </button>
-                  <button class="btn btn-outline-danger btnFull" (click)="deleteServices(item._id)" style="margin: 2px;">
+                  <button class="btn btn-outline-danger btnOperacoes" (click)="deleteServices(item._id)" >
                     <i class="fas fa-trash"></i>
                   </button>
                 </span>
