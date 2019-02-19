@@ -3,7 +3,7 @@
     width: 100vw;
 }
 
-#formServices, #listServices, #navPainelAdm{
+#formServices, #listServices, #navPainelAdm, #listaCarousel{
     margin-top: 20px;
 }
 
@@ -18,4 +18,23 @@
 
 #btnOperacoes{
     margin: 4px;
+}
+
+#listaCarousel img{
+    width: 120px;
+    border-radius: 8px;
+    scale: 1
+}
+
+/* Efeito zoom */
+#zoom{
+    -moz-transform: all 0.3s;
+    -webkit-transform: all 0.3s;
+    transition: all 0.3s;
+}
+
+#zoom:hover {    
+    -moz-transform: scale(2);
+    -webkit-transform: scale(2);
+    transform: scale(2);
 }
