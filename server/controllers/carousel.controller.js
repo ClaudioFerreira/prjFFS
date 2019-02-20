@@ -10,7 +10,7 @@ carouselCtrl.getCarousels = async (req, res) => {
 carouselCtrl.createCarousel = async (req, res) => {
     const carousel = new Carousel({
         titulo: req.body.titulo,
-        imagem: req.body.imagem
+        // imagem: req.body.imagem
     });
     await carousel.save();
     res.json({
@@ -27,13 +27,13 @@ carouselCtrl.editCarousel = async (req, res) => {
     const { id } = req.params;
     const carousel = {
         titulo: req.body.titulo,
-        imagem: req.body.imagem
+        // imagem: req.body.imagem
     };
     await Carousel.findByIdAndUpdate(id, { $ser: carousel }, { new: true });
     res.json({ status: 'Carousel Atualizado' });
 };
 
-carouselCtrl.deleteCarouse = async (req, res) => {
+carouselCtrl.deleteCarousel = async (req, res) => {
     await Carousel.findByIdAndRemove(req.params.id);
     res.json({ status: 'Carousel Deletado' });
 }

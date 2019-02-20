@@ -21,10 +21,11 @@
         <div class="row">
           <div class="col-md-5">
 
-            <form id="listaCarousel">
+            <form id="listaCarousel" #carouselForm="ngForm" (ngSubmit)="addCarousel(carouselForm)"  >
 
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Titulo da Imagem">
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Titulo da Imagem" 
+                  name="titulo" #titulo="ngModel" [(ngModel)]="carouselService.carouselSelecionado.idCarousel" >
               </div>
 
               <div class="input-group">
@@ -36,7 +37,7 @@
               </div>
 
               <div class="form-group">
-                <button type="button" class="btn btn-outline-success btn-block" id="listaCarousel">Salvar</button>
+                <button type="button" class="btn btn-outline-success btn-block" id="listaCarousel" (click)="addCarousel(carouselForm)" >Salvar</button>
               </div>
 
             </form>
