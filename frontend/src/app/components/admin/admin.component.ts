@@ -116,8 +116,8 @@ export class AdminComponent implements OnInit {
     if (confirm('Você realmente quer deletar?')) {
       this.carouselService.deleteCarousel(_id)
         .subscribe(res => {
-          this.getServices();
-          this.toastr.warning('Carousel removido', 'Deletado!')
+          this.getCarousels();
+          this.toastr.warning('Carousel removido', 'Deletado!');
         });
     }
   }
