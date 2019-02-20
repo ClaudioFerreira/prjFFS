@@ -15,7 +15,7 @@ carouselCtrl.createCarousel = async (req, res) => {
     await carousel.save();
     res.json({
         'status': 'Carousel Salvo'
-    })
+    });
 };
 
 carouselCtrl.getCarousel = async (req, res) => {
@@ -26,10 +26,10 @@ carouselCtrl.getCarousel = async (req, res) => {
 carouselCtrl.editCarousel = async (req, res) => {
     const { id } = req.params;
     const carousel = {
-        titulo: req.body.titulo,
+        titulo: req.body.titulo
         // imagem: req.body.imagem
     };
-    await Carousel.findByIdAndUpdate(id, { $ser: carousel }, { new: true });
+    await Carousel.findByIdAndUpdate(id, { $set: carousel }, { new: true });
     res.json({ status: 'Carousel Atualizado' });
 };
 

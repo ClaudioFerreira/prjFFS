@@ -23,9 +23,11 @@
 
             <form id="listaCarousel" #carouselForm="ngForm" (ngSubmit)="addCarousel(carouselForm)"  >
 
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="carouselService.carouselSelecionado._id" >
+
               <div class="form-group">
                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Titulo da Imagem" 
-                  name="titulo" #titulo="ngModel" [(ngModel)]="carouselService.carouselSelecionado.idCarousel" >
+                  name="titulo" #titulo="ngModel" [(ngModel)]="carouselService.carouselSelecionado.titulo" >
               </div>
 
               <div class="input-group">
@@ -45,18 +47,22 @@
           </div>
           <div class="col-md-7" id="listaCarousel">
             <ul class="list-group">
-              <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
+
+              <li *ngFor="let item of carouselService.carousel" class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
                 <img src="http://lorempixel.com/output/animals-q-c-640-480-3.jpg" alt="" id="zoom"> <!-- imagem temporaria -->
-                <h6>Titulo</h6>
+                <h6>{{ item.titulo }}</h6>
                 <span class="badge">
-                  <button class="btn btn-outline-info" id="btnOperacoes" >
+                  <button (click)="editCarousel(item)"
+                          class="btn btn-outline-info" id="btnOperacoes" >
                     <i class="fas fa-pen"></i>
                   </button>
-                  <button class="btn btn-outline-danger" id="btnOperacoes" >
+                  <button (click)="deleteCarousel(item._id)" 
+                          class="btn btn-outline-danger" id="btnOperacoes" >
                     <i class="fas fa-trash"></i>
                   </button>
                 </span>
               </li>
+              
             </ul>
           </div>
         </div>

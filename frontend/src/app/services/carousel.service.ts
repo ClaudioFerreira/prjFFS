@@ -25,11 +25,11 @@ export class CarouselService {
   }
 
   putCarousel(form: Carousel){
-    return this.http.put(this.URL_API + `/${form.idCarousel}`, form);
+    return this.http.put(this.URL_API + `/${form._id}`, form);
   }
 
-  deleteCarousel(idCarousel: string){
-    return this.http.delete(this.URL_API + `/${idCarousel}`);
+  deleteCarousel(_id: string){
+    return this.http.delete(this.URL_API + `/${_id}`);
   }
 
 }

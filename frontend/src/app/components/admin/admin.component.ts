@@ -90,7 +90,7 @@ export class AdminComponent implements OnInit {
 
   addCarousel(form: NgForm){
     console.log(form.value)
-    if (form.value.idCarousel) {
+    if (form.value._id) {
       this.carouselService.putCarousel(form.value)
       .subscribe(res => {
         this.resetForm(form);
@@ -112,14 +112,14 @@ export class AdminComponent implements OnInit {
     this.carouselService.carouselSelecionado = carousel;
   }
 
-  deleteCarousel(idCarousel: string){
-    if (confirm('Realmente quer apagar?')) {
-      this.carouselService.deleteCarousel(idCarousel)
-      .subscribe(res => {
-        this.getCarousels();
-        this.toastr.warning('Carousel removido', 'Deletado!');
-      });      
-    }    
+  deleteCarousel(_id: string) {
+    if (confirm('Você realmente quer deletar?')) {
+      this.carouselService.deleteCarousel(_id)
+        .subscribe(res => {
+          this.getServices();
+          this.toastr.warning('Carousel removido', 'Deletado!')
+        });
+    }
   }
 
 }
