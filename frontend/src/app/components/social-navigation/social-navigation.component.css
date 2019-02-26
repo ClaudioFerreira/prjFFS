@@ -1,5 +1,5 @@
 .side{
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%)
 }
@@ -13,14 +13,13 @@
     text-decoration: none;
     margin: 8px 0;
     color: white;
-    border-radius: 6px;
-    margin-left: -110px;
+    border-radius: 0px 50px 50px 0px;
+    margin-left: -105px;
     transition: 0.6s all;
 }
 
 .side a:hover{
-    margin-left: 0px;
-    margin-left: 15px;
+    margin-left: -1px;
 }
 
 .side i{
