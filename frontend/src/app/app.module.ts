@@ -14,6 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { from } from 'rxjs';
+import { SocialNavigationComponent } from './components/social-navigation/social-navigation.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { from } from 'rxjs';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    AdminComponent
+    AdminComponent,
+    SocialNavigationComponent
   ],
   imports: [
     BrowserModule,
