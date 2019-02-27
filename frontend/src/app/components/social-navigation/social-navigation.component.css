@@ -8,13 +8,13 @@
     color: white;
     font-size: 22px;
     display: block;
-    width: 150px;
+    width: 155px;
     padding: 12px;
     text-decoration: none;
     margin: 8px 0;
     color: white;
     border-radius: 0px 50px 50px 0px;
-    margin-left: -105px;
+    margin-left: -110px;
     transition: 0.6s all;
 }
 
@@ -23,8 +23,9 @@
 }
 
 .side i{
-    margin-right: 0;
-
+    float: right;
+    font-size: 26px;
+    margin-top: 3%
 }
 
 #facebook{
